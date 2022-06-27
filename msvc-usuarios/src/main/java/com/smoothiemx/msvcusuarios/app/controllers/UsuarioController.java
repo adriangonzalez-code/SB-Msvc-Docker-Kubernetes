@@ -4,6 +4,7 @@ import com.smoothiemx.msvcusuarios.app.models.entities.Usuario;
 import com.smoothiemx.msvcusuarios.app.services.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,6 +50,18 @@ public class UsuarioController {
             newUsuario.setPassword(usuario.getPassword());
 
             return ResponseEntity.status(HttpStatus.CREATED).body(this.service.guardar(newUsuario));
+        }
+
+        return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminar(@PathVariable("id") Long id) {
+        Optional<Usuario> usuarioOptional = this.service.porId(id);
+
+        if (usuarioOptional.isPresent()) {
+            this.service.eliminar(id);
+            return ResponseEntity.noContent().build();
         }
 
         return ResponseEntity.notFound().build();
