@@ -1,7 +1,10 @@
 package com.smoothiemx.msvcusuarios.app.services;
 
 import com.smoothiemx.msvcusuarios.app.models.entities.Usuario;
+import com.smoothiemx.msvcusuarios.app.repositories.IUsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,23 +12,30 @@ import java.util.Optional;
 @Service
 public class UsuarioServiceImpl implements IUsuarioService {
 
+    @Autowired
+    private IUsuarioRepository repository;
+
     @Override
+    @Transactional(readOnly = true)
     public List<Usuario> listar() {
-        return null;
+        return (List<Usuario>) this.repository.findAll();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<Usuario> porId(Long id) {
-        return Optional.empty();
+        return this.repository.findById(id);
     }
 
     @Override
+    @Transactional
     public Usuario guardar(Usuario usuario) {
-        return null;
+        return this.repository.save(usuario);
     }
 
     @Override
+    @Transactional
     public void eliminar(Long id) {
-
+        this.repository.deleteById(id);
     }
 }
