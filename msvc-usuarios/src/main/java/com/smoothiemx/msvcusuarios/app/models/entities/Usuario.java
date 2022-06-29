@@ -1,6 +1,9 @@
 package com.smoothiemx.msvcusuarios.app.models.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "usuarios")
@@ -10,12 +13,16 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(name = "nombre")
     private String nombre;
 
+    @NotBlank
+    @Email
     @Column(name = "email", unique = true)
     private String email;
 
+    @NotBlank
     @Column(name = "password")
     private String password;
 

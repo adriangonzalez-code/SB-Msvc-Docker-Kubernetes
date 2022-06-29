@@ -38,4 +38,15 @@ public class UsuarioServiceImpl implements IUsuarioService {
     public void eliminar(Long id) {
         this.repository.deleteById(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<Usuario> porEmail(String email) {
+        return this.repository.porEmail(email);
+    }
+
+    @Override
+    public boolean existePorEmail(String email) {
+        return this.repository.existsByEmail(email);
+    }
 }
