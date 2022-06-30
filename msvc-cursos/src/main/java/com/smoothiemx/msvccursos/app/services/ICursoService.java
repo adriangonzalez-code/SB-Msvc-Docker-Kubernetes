@@ -1,6 +1,6 @@
 package com.smoothiemx.msvccursos.app.services;
 
-import com.smoothiemx.msvccursos.app.entities.Curso;
+import com.smoothiemx.msvccursos.app.models.entities.Curso;
 
 import java.util.List;
 import java.util.Optional;

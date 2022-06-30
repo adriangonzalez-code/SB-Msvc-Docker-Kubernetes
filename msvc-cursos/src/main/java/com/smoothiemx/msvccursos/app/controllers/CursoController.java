@@ -1,6 +1,6 @@
 package com.smoothiemx.msvccursos.app.controllers;
 
-import com.smoothiemx.msvccursos.app.entities.Curso;
+import com.smoothiemx.msvccursos.app.models.entities.Curso;
 import com.smoothiemx.msvccursos.app.services.ICursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
