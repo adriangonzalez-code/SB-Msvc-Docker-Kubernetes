@@ -1,5 +1,6 @@
 package com.smoothiemx.msvccursos.app.services;
 
+import com.smoothiemx.msvccursos.app.models.Usuario;
 import com.smoothiemx.msvccursos.app.models.entities.Curso;
 
 import java.util.List;
@@ -14,4 +15,10 @@ public interface ICursoService {
     Curso guardar(Curso curso);
 
     void eliminar(Long id);
+
+    Optional<Usuario> asignarUsuario(Usuario usuario, Long cursoId);
+
+    Optional<Usuario> crearUsuario(Usuario usuario, Long cursoId);
+
+    Optional<Usuario> eliminarUsuario(Usuario usuario, Long cursoId);
 }
