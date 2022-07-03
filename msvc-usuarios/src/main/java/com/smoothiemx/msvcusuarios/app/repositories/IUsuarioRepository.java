@@ -15,4 +15,5 @@ public interface IUsuarioRepository extends CrudRepository<Usuario, Long> {
 
     boolean existsByEmail(String email);
 
+
 }
