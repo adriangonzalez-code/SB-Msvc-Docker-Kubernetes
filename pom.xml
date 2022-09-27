@@ -16,6 +16,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>Msvc-Usuarios</module>
+        <module>Mscv-Cursos</module>
     </modules>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
